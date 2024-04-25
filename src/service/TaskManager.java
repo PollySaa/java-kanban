@@ -126,7 +126,7 @@ public class TaskManager {
 
     public ArrayList<Subtask> getSubtasksByIdEpic(Epic epic) {
         if (epics.containsKey(epic.getId())) {
-            return new ArrayList<>(epic.getSubtasks());
+            return epic.getSubtasks();
         }
         return new ArrayList<>();
     }
