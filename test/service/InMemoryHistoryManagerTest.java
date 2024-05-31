@@ -24,14 +24,14 @@ class InMemoryHistoryManagerTest {
     }
 
     @Test
-    void testAdd_WhenTaskNotExists() {
+    void testAddWhenTaskNotExists() {
         assertFalse(historyManager.getHistory().contains(task1));
         historyManager.add(task1);
         assertTrue(historyManager.getHistory().contains(task1));
     }
 
     @Test
-    void testAdd_WhenTaskExists() {
+    void testAddWhenTaskExists() {
         historyManager.add(task1);
         assertTrue(historyManager.getHistory().contains(task1));
         historyManager.add(task1);
@@ -41,7 +41,7 @@ class InMemoryHistoryManagerTest {
     }
 
     @Test
-    void testRemove_WhenTaskExists() {
+    void testRemoveWhenTaskExists() {
         historyManager.add(task1);
         assertTrue(historyManager.getHistory().contains(task1));
         historyManager.remove(task1.getId());
@@ -49,31 +49,31 @@ class InMemoryHistoryManagerTest {
     }
 
     @Test
-    void testRemove_WhenTaskNotExists() {
+    void testRemoveWhenTaskNotExists() {
         assertFalse(historyManager.getHistory().contains(task1));
         historyManager.remove(task1.getId());
         assertFalse(historyManager.getHistory().contains(task1));
     }
 
     @Test
-    void testGetHistory_WhenEmpty() {
+    void testGetHistoryWhenEmpty() {
         assertTrue(historyManager.getHistory().isEmpty());
     }
 
     @Test
-    void testGetHistory_WhenNotEmpty() {
+    void testGetHistoryWhenNotEmpty() {
         historyManager.add(task1);
         assertFalse(historyManager.getHistory().isEmpty());
     }
 
     @Test
-    void testLinkLast_WhenEmpty() {
+    void testLinkLastWhenEmpty() {
         historyManager.linkLast(task1);
         assertEquals(task1, historyManager.getHistory().getFirst());
     }
 
     @Test
-    void testLinkLast_WhenNotEmpty() {
+    void testLinkLastWhenNotEmpty() {
         historyManager.linkLast(task1);
         historyManager.linkLast(task2);
         ArrayList<Task> tasks = new ArrayList<>();
