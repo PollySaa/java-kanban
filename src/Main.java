@@ -2,7 +2,6 @@ import components.Epic;
 import components.Status;
 import components.Subtask;
 import components.Task;
-import service.HistoryManager;
 import service.Managers;
 import service.TaskManager;
 
