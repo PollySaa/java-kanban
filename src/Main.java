@@ -2,12 +2,13 @@ import components.Epic;
 import components.Status;
 import components.Subtask;
 import components.Task;
-import service.Managers;
-import service.TaskManager;
+import service.*;
+
+import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Поехали!");
 
         TaskManager manager = Managers.getDefault();
