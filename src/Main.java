@@ -4,11 +4,9 @@ import components.Subtask;
 import components.Task;
 import service.*;
 
-import java.io.IOException;
-
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         System.out.println("Поехали!");
 
         TaskManager manager = Managers.getDefault();
