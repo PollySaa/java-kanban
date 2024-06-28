@@ -15,6 +15,7 @@ public class InMemoryTaskManager implements TaskManager {
     protected final HashMap<Integer, Epic> epics;
     protected final HistoryManager historyManager;
     protected Set<Task> prioritizedTasks;
+    private final String exception = "Задача пересекается по времени с другой задачей.";
 
     public InMemoryTaskManager(HistoryManager historyManager) {
         this.historyManager = Managers.getDefaultHistory();
@@ -126,7 +127,7 @@ public class InMemoryTaskManager implements TaskManager {
         }
 
         if (isTimeOverLapping(task)) {
-            throw new IllegalArgumentException("Задача пересекается по времени с другой задачей.");
+            throw new IllegalArgumentException(exception);
         }
         task.setId(getId());
         tasks.put(task.getId(), task);
@@ -140,7 +141,7 @@ public class InMemoryTaskManager implements TaskManager {
         }
 
         if (isTimeOverLapping(subtask)) {
-            throw new IllegalArgumentException("Задача пересекается по времени с другой задачей.");
+            throw new IllegalArgumentException(exception);
         }
 
         if (epics.containsKey(subtask.getIdEpic())) {
